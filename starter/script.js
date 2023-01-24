@@ -6,33 +6,23 @@ setInterval(function () {
     document.querySelector("#currentDay").textContent = today.format("D MMM YYYY");
     })
 
+storedTextFun()
 
-    function storedText() {
-        let values = []
-        keys = Object.keys(localStorage)
-        i = keys.length
-        while (i--) {
-            let storedText = JSON.parse(localStorage.getItem("textArea"))
-            values.push(localStorage.getItem(keys[i]))
-            $($("textarea")).text = storedText
+    function storedTextFun() {
+        let storedText= JSON.parse(localStorage.getItem("textArea"))
+            if (storedText === ""){
+                return}
+            else {$("textarea").text(storedText.textArea)}
         }
-    }
-    storedText()
-
-    // let storedText= JSON.parse(localStorage.getItem("textArea"))
-    // console.log(storedText)
-    // $($("textarea")).text(storedText.textArea) //display text at the textAreaIndex where the text was entered
 
     $(".saveBtn").click(function (event) {
         let saveBtnIndex = $(event.target).data().index;
         let textareaIndex = $(event.target).siblings().data().index;
+        let textArea = $("textarea").val();
         if (saveBtnIndex = textareaIndex) {
-            let textArea = $("textarea").text(); //targets value entered at any textarea where both indexes are equal, but not at a specific textAreaIndex
-            localStorage.setItem("textArea", JSON.stringify({textArea: textArea[textareaIndex]}))
-        }
-        storedText()
+        localStorage.setItem("textArea", JSON.stringify({textArea}))}
+        storedTextFun()
     })
-    
 
 let present = parseFloat(moment().format("HH"))
 
@@ -42,8 +32,7 @@ Object.keys($(".hour")).forEach((element) => {
         $($("textarea")[element]).attr("data-index", element)
         $($(".saveBtn")[element]).attr("data-index", element)
     }
-}
-)
+})
 
 Object.keys($(".hour")).forEach((element) => {
     if (element < 10) {
@@ -62,17 +51,5 @@ Object.keys($(".hour")).forEach((element) => {
                 }
             })
 
-        // function displayStoredText(){
-        //     let storedText = localStorage.getItem("textArea")
-        //     if (storedText === "")
-        //     {
-        //         return
-        //     }
-        //     else if (storedText === ""){
-        //         $("textarea").text(storedText)
-        //     }}
-
-
-        //$("textarea").sortable();
 
     })

@@ -1,10 +1,10 @@
-# Module 7 Challenge Work Day Scheduler
+# Module 7 Challenge Daily Planner
 
-The bootcamp challenge for this week was to build a calendar application that allows a user to save events for each hour of the day using jQuery.
+This calendar application allows a user to save events for each hour of the day using jQuery.
   
 ## Installation
 
-N/A
+You can install this app by cloning the GitHub repository to your local computer. Copy the HTTPS link found under the “code” tab. Open Git Bash and run the command “git clone” then pasting the GitHub link. Run the command “code .” to open the files in VS Code. 
 
 ## Usage
 
@@ -15,7 +15,7 @@ https://tala-ammoun.github.io/Daily-Planner/
 
 
 ### Final Result:
-![Sample question](images/SharedScreenshot.jpg)
+![planner](images/pic1.jpg)
 
 
 ## Credits

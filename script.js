@@ -1,25 +1,24 @@
 setInterval(function () {
     var today = moment();
     document.querySelector("#currentDay").textContent = today.format("D MMM YYYY");
-    })
+    }, 1000)
 
 storedTextFun()
-
     function storedTextFun() {
         for (let i = 0; i < localStorage.length; i++) {
-            if (storedText === " "){
-            let storedText= JSON.parse(localStorage.getItem(i))
-                return}
-            else {$("textarea").text(storedText)}
+            if (localStorage.getItem(i) !== null){
+            let storedText = localStorage.getItem(i) 
+            $("textarea").eq(i).text(storedText)}
         }}
 
     $(".saveBtn").click(function (event) {
+        event.preventDefault();
         let saveBtnIndex = $(event.target).data().index;
         let textareaIndex = $(event.target).siblings().data().index;
         let textArea = $("textarea").eq(textareaIndex).val();
-        if (saveBtnIndex = textareaIndex) {
-        localStorage.setItem("textArea", JSON.stringify(textArea))}
-        storedTextFun()
+        if (saveBtnIndex === textareaIndex) {
+            console.log(textArea)
+        localStorage.setItem(saveBtnIndex, textArea)}
     })
 
 let present = parseFloat(moment().format("HH"))
